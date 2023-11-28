@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 /*
 @desc : UserRegistrationTest is tto do a unit testing.
+UC10: Testing cases using a junit.
 **/
 public class UserRegistrationTest {
 
