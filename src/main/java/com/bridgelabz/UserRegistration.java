@@ -1,4 +1,6 @@
 package com.bridgelabz;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  *@desc User_Registration_Pattern class is checking a validation for user registration
  */
@@ -36,22 +38,7 @@ public class UserRegistration {
         return isValidLastName;
     }
 
-    /*
-     * @desc: validateEmailid method is validating the last name
-     * @param email  is a email id to validateEmail function
-     * @return isValidEmail will true or false if conditions are true or false
-     */
-    public boolean validateEmailid(String EmailId) {
-        boolean isValidEmail = EmailId.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$");
-        if (isValidEmail) {
-            System.out.println("Email name is valid");
-        }
-        else
-        {
-            System.out.println("Email name is not valid ");
-        }
-        return isValidEmail;
-    }
+
 
     /*
      * @desc: validateMobileno method is validating the mobile number
@@ -85,4 +72,72 @@ public class UserRegistration {
         }
         return isValidPassword;
     }
+    /*
+     * @desc: validateEmailid method is validating the last name
+     * @param email  is a email id to validateEmail function
+     * @return isValidEmail will true or false if conditions are true or false
+     */
+    public boolean validateEmailid(String EmailId) {
+        boolean isValidEmail = EmailId.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$");
+        if (isValidEmail) {
+            System.out.println("Email name is valid");
+        }
+        else
+        {
+            System.out.println("Email name is not valid ");
+        }
+        return isValidEmail;
+    }
+    public boolean validEmail(String email){
+        Pattern pattern = Pattern.compile("^[a-z]{3}@[a-z]{2,}.[a-z]{3,}$");
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("^[a-z]{3}-[0-9]{3}@[a-z]{3,}.[a-z]{2,}$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+
+        pattern = Pattern.compile("^[a-z]{3}.[0-9]{3}@[a-z]{3,}.[a-z]{2,}$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("^[a-z0-9]{2,}@[a-z]{3}.[a-z]{2,}$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("^[a-z]{2,}-[0-9]{2,}@[a-z]{2,}.[a-z]{2,}");
+        matcher= pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("^[a-z]{3}.[0-9]{3}@[a-z]{3}.[a-z]{3}.[a-z]{2}$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+
+        pattern = Pattern.compile("^[a-z]{3}@[a-z]{2,}.[a-z]{3}.[a-z]{3}$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("[a-z]{3,}[+]\\d{2,}@[a-z]{2,}.[a-z]{3,}");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+        pattern = Pattern.compile("^[a-z]{2,}@[0-9]{1,}.[a-z]{2,}$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches()){
+            return true;
+        }
+
+        return false;
+    }
+
 }
