@@ -12,12 +12,12 @@ public class UserRegistration {
      * @param FirstName is a first name passed to the validateFirstName function to check validation
      * @return isvalid is will true or false if conditions are true or false
      */
-    public boolean validateFirstName(String FirstName) {
+    public boolean validateFirstName(String FirstName) throws InvalidInputException {
         boolean isValid = FirstName.matches("[A-Z][a-z]{3,10}");
         if (isValid) {
             System.out.println("First name is valid");
         } else {
-            System.out.println("First name is not valid ");
+            throw new InvalidInputException("This is a invalid first name");
         }
         return isValid;
     }
@@ -28,12 +28,13 @@ public class UserRegistration {
      * @return isValidLastName is will true or false if conditions are true or false
      */
 
-    public boolean validateLastName(String lastName) {
+    public boolean validateLastName(String lastName) throws InvalidInputException {
         boolean isValidLastName = lastName.matches("[A-Z][a-z]{3,10}");
         if (isValidLastName) {
             System.out.println("Last name is valid");
-        } else {
-            System.out.println("Last name is not valid ");
+        }
+        else {
+            throw new InvalidInputException("This is a invalid last name");
         }
         return isValidLastName;
     }
@@ -45,14 +46,14 @@ public class UserRegistration {
      * @param mobNo is a parameter for  validateMobileno  to check validation for mobile number
      * @return isValidMobileNumber will true or false if condition are true or false
      */
-    public boolean validateMobileno(String mobNo) {
+    public boolean validateMobileno(String mobNo) throws InvalidInputException {
         boolean isValidMobileNumber = mobNo.matches("^(\\+91[ ])?\\d{10}$");
         if (isValidMobileNumber) {
             System.out.println("mobile number is valid");
         }
         else
         {
-            System.out.println("mobile number is not valid ");
+            throw new InvalidInputException("This is a invalid mobile number");
         }
         return isValidMobileNumber;
     }
@@ -61,14 +62,14 @@ public class UserRegistration {
      * @param password is a parameter for the validatePassword to check validation for password
      * @return validatePassword will true or false if condition are true or false
      */
-    public boolean validatePassword(String password) {
+    public boolean validatePassword(String password) throws InvalidInputException  {
         boolean isValidPassword = password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         if (isValidPassword) {
             System.out.println("password is valid");
         }
         else
         {
-            System.out.println("Password has not minimum 8 characters and one upper case character and one number");
+            throw new InvalidInputException("This is a invalid password");
         }
         return isValidPassword;
     }
@@ -77,14 +78,14 @@ public class UserRegistration {
      * @param email  is a email id to validateEmail function
      * @return isValidEmail will true or false if conditions are true or false
      */
-    public boolean validateEmailid(String EmailId) {
+    public boolean validateEmailid(String EmailId) throws InvalidInputException{
         boolean isValidEmail = EmailId.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$");
         if (isValidEmail) {
             System.out.println("Email name is valid");
         }
         else
         {
-            System.out.println("Email name is not valid ");
+            throw new InvalidInputException("This is a invalid Email id");
         }
         return isValidEmail;
     }
